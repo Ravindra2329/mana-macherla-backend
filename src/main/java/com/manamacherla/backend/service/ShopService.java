@@ -15,23 +15,23 @@ public class ShopService {
         this.shopRepository = shopRepository;
     }
 
-    // ✅ ADD SHOP
+    // ADD
     public Shop addShop(Shop shop) {
         return shopRepository.save(shop);
     }
 
-    // ✅ GET ALL SHOPS
+    // GET ALL
     public List<Shop> getAllShops() {
         return shopRepository.findAll();
     }
 
-    // ✅ GET BY ID
+    // GET BY ID
     public Shop getShopById(Long id) {
         return shopRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Shop not found"));
     }
 
-    // ✅ UPDATE SHOP
+    // UPDATE
     public Shop updateShop(Long id, Shop updatedShop) {
         Shop shop = shopRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Shop not found"));
@@ -45,8 +45,13 @@ public class ShopService {
         return shopRepository.save(shop);
     }
 
-    // ✅ DELETE SHOP
+    // DELETE
     public void deleteShop(Long id) {
         shopRepository.deleteById(id);
+    }
+
+    // CATEGORY
+    public List<Shop> getByCategory(String category) {
+        return shopRepository.findByCategory(category);
     }
 }

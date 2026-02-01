@@ -48,4 +48,10 @@ public class ShopController {
     public void deleteShop(@PathVariable Long id) {
         shopService.deleteShop(id);
     }
+
+    // ✅ CATEGORY FILTER
+    @GetMapping("/category/{category}")
+    public List<Shop> getByCategory(@PathVariable String category) {
+        return shopService.getByCategory(category);
+    }
 }
