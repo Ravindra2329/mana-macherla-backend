@@ -8,8 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/shops")
-@CrossOrigin(origins = "http://localhost:5173")
-
 public class ShopController {
 
     private final ShopService shopService;
@@ -28,13 +26,13 @@ public class ShopController {
         return shopService.getAllShops();
     }
 
-    @GetMapping("/category/{category}")
-    public List<Shop> getByCategory(@PathVariable String category) {
-        return shopService.getByCategory(category);
+    @PutMapping("/{id}")
+    public Shop updateShop(@PathVariable Long id, @RequestBody Shop shop) {
+        return shopService.updateShop(id, shop);
     }
 
-    @GetMapping("/{id}")
-    public Shop getShop(@PathVariable Long id) {
-        return shopService.getShopById(id);
+    @DeleteMapping("/{id}")
+    public void deleteShop(@PathVariable Long id) {
+        shopService.deleteShop(id);
     }
 }

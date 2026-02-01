@@ -30,4 +30,21 @@ public class ShopService {
     public Shop getShopById(Long id) {
         return shopRepository.findById(id).orElse(null);
     }
+    public Shop updateShop(Long id, Shop updatedShop) {
+        Shop shop = shopRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Shop not found"));
+
+        shop.setShopName(updatedShop.getShopName());
+        shop.setCategory(updatedShop.getCategory());
+        shop.setAddress(updatedShop.getAddress());
+        shop.setPhone(updatedShop.getPhone());
+        shop.setWhatsapp(updatedShop.getWhatsapp());
+
+        return shopRepository.save(shop);
+    }
+    public void deleteShop(Long id) {
+        shopRepository.deleteById(id);
+    }
+
+
 }
