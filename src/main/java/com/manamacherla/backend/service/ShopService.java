@@ -1,6 +1,6 @@
 package com.manamacherla.backend.service;
 
-import com.manamacherla.backend.model.Shop;
+import com.manamacherla.backend.entity.Shop;
 import com.manamacherla.backend.repository.ShopRepository;
 import org.springframework.stereotype.Service;
 
